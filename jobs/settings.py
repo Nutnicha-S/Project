@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jobportal',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,13 @@ WSGI_APPLICATION = 'jobs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://ao:jaao%3C241042%3E@cluster0.mdwem.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+            'name': 'Occupation',
+            'authMechanism':'SCRAM-SHA-1' #For atlas cloud db
+        }
     }
 }
 
